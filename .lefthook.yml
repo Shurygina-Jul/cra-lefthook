@@ -1,0 +1,17 @@
+pre-commit:
+  commands:
+    eslint:
+      stage: commit
+      files: "**/*.js"
+      runner: npm run lint
+
+commit-msg:
+  commands:
+    commit-message:
+      stage: commit
+      files: COMMIT_EDITMSG
+      runner: |
+        if ! grep -qE "^(feat||fix) ([A-Z]{4}-[0-9]{4}): .+" "$1"; then
+          echo "Commit message format is incorrect. It should be in the format 'feat||fix (FKIS-0000): commit message'."
+          exit 1
+        fi
