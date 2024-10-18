@@ -1,5 +1,5 @@
 #!/bin/bash
-
+exit 1
 # Отладочное сообщение для проверки, что скрипт запускается
 echo "Starting commit message check..."
 
