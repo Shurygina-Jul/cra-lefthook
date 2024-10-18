@@ -22,8 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .ts,.tsx",
-    "precommit": "npm run lint",
-    "commit-msg": "bash commit_message_check.sh .git/COMMIT_EDITMSG"
+    "precommit": "npm run lint"
   },
   "eslintConfig": {
     "extends": [
