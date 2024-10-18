@@ -1,0 +1,41 @@
+# pre-commit:
+#   parallel: true
+#   commands:
+#     eslint:
+#       runner: |
+#         FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.jsx$|\.tsx$')
+#         if [ -n "$FILES" ]; then
+#           echo "Running ESLint on: $FILES"
+#           npx eslint $FILES
+#         else
+#           echo "No JavaScript or TypeScript files to lint."
+#         fi
+#       files: "**/*.{jsx,tsx}"
+#       glob: true
+#       include: "**/*.{jsx,tsx}"
+#       exclude: "node_modules/**/*"
+
+commit-msg:
+  commands:
+    commit-message:
+      runner: |
+        if ! grep -qE "^(feat|fix) \\([A-Z]{4}-[0-9]{4}\\): .+" "$1"; then
+          echo "Commit message format is incorrect. It should be in the format 'feat (FKIS-0000): commit message'."
+          exit 1
+        fi
+
+# Описание команд:
+# pre-commit:
+#  - Параметр parallel: true позволяет выполнять команды параллельно.
+#  - Команда eslint:
+#    - Выполняет команду ESLint с использованием команды `npx eslint` только для файлов, которые изменены (staged).
+#    - Файлы для проверки ищутся по шаблону `**/*.{js,ts}`, но исключены файлы внутри папки `node_modules`.
+#
+# commit-msg:
+#  - Команда commit-message проверяет формат сообщения коммита.
+#  - Сообщение коммита должно соответствовать регулярному выражению: "^(feat|fix) \\([A-Z]{4}-[0-9]{4}\\): .+"
+#    - Пример: "feat (FKIS-1234): added new feature"
+#    - Если формат сообщения неверный, команда завершится с ошибкой и выдаст соответствующее сообщение.
+
+# Для активации и установки хуков после создания/редактирования этого файла нужно выполнить:
+# npx lefthook install
