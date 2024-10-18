@@ -27,12 +27,7 @@
 commit-msg:
   commands:
     commit-message:
-      runner: |
-        if ! grep -qE "^(feat|fix) \([A-Z]{4}-[0-9]{4}\): .+" "$1"; then
-          echo "Commit message format is incorrect. It should be in the format 'feat (FKIS-0000): commit message'."
-          exit 1
-        fi
-
+      runner: bash commit_message_check.sh "$1"
 # Описание команд:
 # pre-commit:
 #  - Параметр parallel: true позволяет выполнять команды параллельно.
