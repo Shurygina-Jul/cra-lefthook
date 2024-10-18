@@ -31,8 +31,8 @@
 
 commit-msg:
   scripts:
-    "commit_message_check":
-      runner: sh
+    "template_checker":
+      runner: bash
 # Описание команд:
 # pre-commit:
 #  - Параметр parallel: true позволяет выполнять команды параллельно.
