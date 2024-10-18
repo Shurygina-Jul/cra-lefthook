@@ -15,24 +15,25 @@
 #       include: "**/*.{jsx,tsx}"
 #       exclude: "node_modules/**/*"
 
-# commit-msg:
-#   commands:
-#     commit-message:
-#       runner: |
-#         if ! grep -qE "^(feat|fix) \\([A-Z]{4}-[0-9]{4}\\): .+" "$1"; then
-#           echo "Commit message format is incorrect. It should be in the format 'feat (FKIS-0000): commit message'."
-#           exit 1
-#         fi
-pre-commit:
-  commands:
-    echo-hello:
-      runner: echo "Hello from Lefthook!"
-
 commit-msg:
   commands:
     commit-message:
       runner: |
-        ./commit_message_check.sh .git/COMMIT_EDITMSG
+        if ! grep -qE "^(feat|fix) \\([A-Z]{4}-[0-9]{4}\\): .+" "$1"; then
+          echo "Commit message format is incorrect. It should be in the format 'feat (FKIS-0000): commit message'."
+          exit 1
+        fi
+
+# pre-commit:
+#   commands:
+#     echo-hello:
+#       runner: echo "Hello from Lefthook!"
+
+# commit-msg:
+#   commands:
+#     commit-message:
+#       runner: |
+#         ./commit_message_check.sh .git/COMMIT_EDITMSG
 
 # Описание команд:
 # pre-commit:
