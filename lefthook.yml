@@ -32,7 +32,7 @@
 commit-msg:
   scripts:
     "commit_message_check":
-      runner: bush
+      runner: sh
 # Описание команд:
 # pre-commit:
 #  - Параметр parallel: true позволяет выполнять команды параллельно.
