@@ -23,6 +23,10 @@
 #           echo "Commit message format is incorrect. It should be in the format 'feat (FKIS-0000): commit message'."
 #           exit 1
 #         fi
+pre-commit:
+  commands:
+    echo-hello:
+      runner: echo "Hello from Lefthook!"
 
 commit-msg:
   commands:
