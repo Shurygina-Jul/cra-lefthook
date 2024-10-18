@@ -27,7 +27,9 @@
 commit-msg:
   commands:
     commit-message:
-      runner: bash commit_message_check.sh "$1"
+      runner: |
+        ./commit_message_check.sh .git/COMMIT_EDITMSG
+
 # Описание команд:
 # pre-commit:
 #  - Параметр parallel: true позволяет выполнять команды параллельно.
