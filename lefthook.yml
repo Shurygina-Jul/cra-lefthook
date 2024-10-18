@@ -31,7 +31,7 @@
 
 commit-msg:
   scripts:
-    "/Users/yushurygina/cra-lefthook/commit_message_check.sh":
+    "commit_message_check":
       runner: bush
 # Описание команд:
 # pre-commit:
