@@ -24,10 +24,10 @@
 #           exit 1
 #         fi
 
-# pre-commit:
-#   commands:
-#     echo-hello:
-#       runner: echo "Hello from Lefthook!"
+pre-commit:
+  commands:
+    echo-hello:
+      runner: echo "Hello from Lefthook!"
 
 commit-msg:
   scripts:
