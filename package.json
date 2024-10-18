@@ -23,7 +23,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .ts,.tsx",
     "precommit": "npm run lint",
-    "commit-message": "bash commit_message_check.sh $1"
+    "commit-msg": "bash commit_message_check.sh .git/COMMIT_EDITMSG"
   },
   "eslintConfig": {
     "extends": [
