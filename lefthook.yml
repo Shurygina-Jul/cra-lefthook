@@ -30,11 +30,9 @@
 #       runner: echo "Hello from Lefthook!"
 
 commit-msg:
-  commands:
-    commit-message:
-      runner: |
-        ./commit_message_check.sh .git/COMMIT_EDITMSG
-
+  scripts:
+    "commit_message_check.sh":
+      runner: bush
 # Описание команд:
 # pre-commit:
 #  - Параметр parallel: true позволяет выполнять команды параллельно.
