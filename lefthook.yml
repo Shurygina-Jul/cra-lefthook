@@ -31,7 +31,7 @@
 
 commit-msg:
   scripts:
-    "template_checker":
+    "template_checker.sh":
       runner: bash
 # Описание команд:
 # pre-commit:
