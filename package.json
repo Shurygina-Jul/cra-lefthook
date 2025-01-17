@@ -10,10 +10,12 @@
     "@types/node": "^16.18.114",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
+    "jsdoc": "^4.0.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
-    "typescript": "^4.9.5",
+    "typedoc": "^0.27.4",
+    "typescript": "5.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -22,7 +24,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .ts,.tsx",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "jsdoc": "jsdoc -r -c jsdoc.conf",
+    "typedoc": "typedoc"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@microsoft/tsdoc": "^0.15.1",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
     "lefthook": "^1.7.21"
