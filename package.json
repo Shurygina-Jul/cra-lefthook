@@ -2,6 +2,7 @@
   "name": "cra-lefthook",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -21,12 +22,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .ts,.tsx",
     "precommit": "npm run lint",
     "jsdoc": "jsdoc -r -c jsdoc.conf",
-    "typedoc": "typedoc"
+    "typedoc": "typedoc",
+    "create:component": "node scripts/create-component.js"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +53,7 @@
     "@microsoft/tsdoc": "^0.15.1",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
+    "jest": "^29.7.0",
     "lefthook": "^1.7.21"
   }
 }
