@@ -23,8 +23,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint . --ext .ts,.tsx",
-    "precommit": "npm run lint",
+    "lint": "eslint .",
+    "precommit": "yarn lint",
     "jsdoc": "jsdoc -r -c jsdoc.conf",
     "typedoc": "typedoc"
   },
@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@microsoft/tsdoc": "^0.15.1",
-    "eslint": "^9.20.0",
+    "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
     "lefthook": "^1.7.21"
   }

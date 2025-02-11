@@ -1,12 +1,6 @@
-# pre-commit:
-#   parallel: true
-#   commands:
-#     eslint:
-#       runner: bash scripts/eslint.sh
-#       files: "**/*.{js,jsx,ts,tsx}"
-#       glob: true
-#       include: "**/*.{js,jsx,ts,tsx}"
-#       exclude: "node_modules/**/*"
+pre-commit:
+  jobs:
+    - run: yarn lint
 
 commit-msg:
   scripts:
