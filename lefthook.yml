@@ -1,7 +1,11 @@
 pre-commit:
-    scripts: 
-      "eslint.sh"
+  scripts:
+    "eslint.sh":
       runner: bash
+      files: "**/*.{js,jsx,ts,tsx}"
+      glob: true
+      include: "**/*.{js,jsx,ts,tsx}"
+      exclude: "node_modules/**/*"
 
 commit-msg:
   scripts:
