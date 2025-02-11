@@ -1,7 +1,7 @@
 pre-commit:
-  jobs:
-    - script: eslint.sh
-      runner:bash
+    scripts: 
+      "eslint.sh"
+      runner: bash
 
 commit-msg:
   scripts:
