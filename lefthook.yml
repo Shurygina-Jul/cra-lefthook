@@ -1,6 +1,7 @@
 pre-commit:
   jobs:
-    - run: yarn lint
+    - script: eslint.sh
+      runner:bash
 
 commit-msg:
   scripts:
