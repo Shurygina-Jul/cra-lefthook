@@ -1,19 +1,44 @@
-# pre-commit:
-#   parallel: true
-#   commands:
-#     eslint:
-#       runner: |
-#         FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.jsx$|\.tsx$')
-#         if [ -n "$FILES" ]; then
-#           echo "Running ESLint on: $FILES"
-#           npx eslint $FILES
-#         else
-#           echo "No JavaScript or TypeScript files to lint."
-#         fi
-#       files: "**/*.{jsx,tsx}"
-#       glob: true
-#       include: "**/*.{jsx,tsx}"
-#       exclude: "node_modules/**/*"
+pre-commit:
+  parallel: true
+commands:
+  eslint:
+    runner: |
+      if ! command -v eslint &> /dev/null; then
+        echo "ESLint is not installed. Please run 'npm install eslint --save-dev' to install ESLint."
+        exit 1
+      fi
+
+      FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '.jsx$|.tsx$')
+      if [ -n "$FILES" ]; then
+        echo "Running ESLint on: $FILES"
+        npx eslint $FILES
+        ESLINT_EXIT_CODE=$?
+        if [ $ESLINT_EXIT_CODE -ne 0 ]; then
+          echo "ESLint found errors. Please fix them before committing."
+          exit 1
+        fi
+      else
+        echo "No JavaScript or TypeScript files to lint."
+      fi
+    files: "**/*.{jsx,tsx}"
+    glob: true
+    include: "**/*.{jsx,tsx}"
+    exclude: "node_modules/**/*"
+  # parallel: true
+  # commands:
+  #   eslint:
+  #     runner: |
+  #       FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.jsx$|\.tsx$')
+  #       if [ -n "$FILES" ]; then
+  #         echo "Running ESLint on: $FILES"
+  #         npx eslint $FILES
+  #       else
+  #         echo "No JavaScript or TypeScript files to lint."
+  #       fi
+  #     files: "**/*.{jsx,tsx}"
+  #     glob: true
+  #     include: "**/*.{jsx,tsx}"
+  #     exclude: "node_modules/**/*"
 
 # commit-msg:
 #   commands:
