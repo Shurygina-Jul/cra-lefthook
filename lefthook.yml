@@ -9,5 +9,5 @@ pre-commit:
 
 commit-msg:
   scripts:
-    "template_checker.sh":
-      runner: bash
+    "template_checker.js":
+      runner: node
