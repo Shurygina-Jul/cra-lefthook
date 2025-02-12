@@ -5,15 +5,20 @@ output:
   - meta # Print lefthook version
   - summary # Print summary block (successful and failed steps)
 
+# pre-commit:
+#   parallel: true
+#   scripts:
+#     "linting.js":
+#       runner: node
+#       files: "*.{js,jsx,ts,tsx}"
+#       glob: true
+#       include: "**/*.{js,jsx,ts,tsx}"
+#       exclude: "node_modules/**/*"
+
 pre-commit:
-  parallel: true
-  scripts:
-    "linting.js":
-      runner: node
-      files: "*.{js,jsx,ts,tsx}"
-      glob: true
-      include: "**/*.{js,jsx,ts,tsx}"
-      exclude: "node_modules/**/*"
+  jobs:
+    - name: lint and fix
+      run: yarn run eslint --fix {staged_files}
 
 commit-msg:
   parallel: true
