@@ -24,4 +24,4 @@ pre-commit:
 commit-msg:
   jobs:
     template_checker:
-      runner: node .lefthook/commit-msg/template_checker.js
+      runner: node lefthook/commit-msg/template_checker.js
