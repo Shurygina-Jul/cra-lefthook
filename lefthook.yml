@@ -4,13 +4,19 @@ quiet: true # Отключаем подробный вывод для каждо
 # output:
 #   - meta # Print lefthook version
 #   - summary # Print summary block (successful and failed steps)
+
 pre-commit:
-  parallel: true
+  # parallel: true
   commands:
     eslint:
       glob: "*.{js,ts,jsx,tsx}"
       run: yarn eslint {staged_files}
 
+commit-msg:
+  # parallel: true
+  scripts:
+    "template_checker.js":
+      runner: node
 # pre-commit:
 #   parallel: true
 #   scripts:
@@ -20,9 +26,3 @@ pre-commit:
 #       glob: true
 #       include: "**/*.{js,jsx,ts,tsx}"
 #       exclude: "node_modules/**/*"
-
-commit-msg:
-  parallel: true
-  scripts:
-    "template_checker.js":
-      runner: node
