@@ -1,7 +1,7 @@
 pre-commit:
   scripts:
-    "eslint.sh":
-      runner: bash
+    "eslint.js":
+      runner: node
       files: "**/*.{js,jsx,ts,tsx}"
       glob: true
       include: "**/*.{js,jsx,ts,tsx}"
