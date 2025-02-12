@@ -4,16 +4,21 @@ quiet: true # Отключаем подробный вывод для каждо
 # output:
 #   - meta # Print lefthook version
 #   - summary # Print summary block (successful and failed steps)
-
 pre-commit:
-  parallel: true
-  scripts:
-    "linting.js":
-      runner: node
-      files: "*.{js,jsx,ts,tsx}"
-      glob: true
-      include: "**/*.{js,jsx,ts,tsx}"
-      exclude: "node_modules/**/*"
+  commands:
+    eslint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: yarn eslint {staged_files}
+
+# pre-commit:
+#   parallel: true
+#   scripts:
+#     "linting.js":
+#       runner: node
+#       files: "*.{js,jsx,ts,tsx}"
+#       glob: true
+#       include: "**/*.{js,jsx,ts,tsx}"
+#       exclude: "node_modules/**/*"
 
 commit-msg:
   parallel: true
