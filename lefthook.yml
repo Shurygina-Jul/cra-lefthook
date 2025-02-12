@@ -5,6 +5,7 @@ quiet: true # Отключаем подробный вывод для каждо
 #   - meta # Print lefthook version
 #   - summary # Print summary block (successful and failed steps)
 pre-commit:
+  parallel: true
   commands:
     eslint:
       glob: "*.{js,ts,jsx,tsx}"
