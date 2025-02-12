@@ -3,7 +3,6 @@ const fs = require("fs");
 console.log("Checking commit message...");
 
 const commitMessage = fs.readFileSync(process.argv[2], "utf8").trim();
-console.log(`CommitMessage - "${commitMessage}"`);
 
 const commitPattern =
   /^(feat|fix|chore|docs|style|refactor|test)\([A-Z]+-[0-9]+\): .+/;
