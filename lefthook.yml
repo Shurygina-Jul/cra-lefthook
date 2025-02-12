@@ -1,6 +1,10 @@
 pipeline: true # Выполнять хуки последовательно и выводить общий отчет в конце
 quiet: true # Отключаем подробный вывод для каждого хука
 
+output:
+  - meta # Print lefthook version
+  - summary # Print summary block (successful and failed steps)
+
 pre-commit:
   parallel: true
   scripts:
