@@ -1,13 +1,27 @@
+# pre-commit:
+#   scripts:
+#     "linting.js":
+#       runner: node
+#       files: "**/*.{js,jsx,ts,tsx}"
+#       glob: true
+#       include: "**/*.{js,jsx,ts,tsx}"
+#       exclude: "node_modules/**/*"
+
+# commit-msg:
+#   scripts:
+#     "template_checker.js":
+#       runner: node
+
 pre-commit:
-  scripts:
-    "eslint.js":
-      runner: node
+  jobs:
+    eslint:
+      runner: node .lefthook/pre-commit/linting.js
       files: "**/*.{js,jsx,ts,tsx}"
       glob: true
       include: "**/*.{js,jsx,ts,tsx}"
       exclude: "node_modules/**/*"
 
 commit-msg:
-  scripts:
-    "template_checker.js":
-      runner: node
+  jobs:
+    template_checker:
+      runner: node .lefthook/commit-msg/template_checker.js
