@@ -1,38 +1,35 @@
 const { execSync } = require("child_process");
 
-// Выводим сообщение о начале линтинга
 console.log("Start linting!");
 
 try {
-  // Получаем список измененных файлов JavaScript и TypeScript для линтинга
+  // Получаем список staged файлов
+  // --cached сравнивать файлы в индексе с последним коммитом
+  // --name-only взять только имена
+  // --diff-filter=ACM фильтр по статусу staged файлов A(added) C(copied) M(modified)
+  // grep берет файлы только с нужными расширениями
   const files = execSync(
     "git diff --cached --name-only --diff-filter=ACM | grep -E '.js$|.jsx$|.ts$|.tsx$' || true",
     { encoding: "utf8" }
   ).trim();
 
   if (files) {
-    // Выводим список файлов, которые будут пролинтованы
     console.log("Files to lint:");
     console.log(files);
-    // Запускаем ESLint для указанных файлов
     console.log("Running ESLint on: " + files);
 
     try {
-      // Запускаем ESLint с помощью yarn и передаем список файлов
       execSync("yarn lint " + files, { stdio: "inherit" });
-      // Выводим сообщение об успешном прохождении ESLint
       console.log("ESLint passed successfully.");
     } catch (error) {
-      // Выводим сообщение об ошибках ESLint и просим исправить их перед коммитом
       console.error("ESLint found errors. Please fix them before committing.");
       process.exit(1);
     }
   } else {
-    // Выводим сообщение, если нет файлов JavaScript или TypeScript для линтинга
     console.log("No JavaScript or TypeScript files to lint.");
   }
 } catch (error) {
-  // Обрабатываем ошибку, если команда git diff или grep завершилась с ошибкой
+  // Обрабатываем ошибку, если git diff или grep завершилась с ошибкой
   console.error("Error while getting changed files:", error.message);
   process.exit(1);
 }

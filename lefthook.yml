@@ -1,14 +1,15 @@
 pre-commit:
+  parallel: true
   scripts:
     "linting.js":
       runner: node
-      #files: "**/*.{js,jsx,ts,tsx}"
       files: "*.{js,jsx,ts,tsx}"
       glob: true
       include: "**/*.{js,jsx,ts,tsx}"
       exclude: "node_modules/**/*"
 
 commit-msg:
+  parallel: true
   scripts:
     "template_checker.js":
       runner: node
