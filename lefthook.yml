@@ -6,14 +6,14 @@ quiet: true # Отключаем подробный вывод для каждо
 #   - summary # Print summary block (successful and failed steps)
 
 pre-commit:
-  # parallel: true
+  parallel: true
   commands:
     eslint:
       glob: "*.{js,ts,jsx,tsx}"
-      run: yarn eslint {staged_files}
+      run: yarn eslint {staged_files} --fix
 
 commit-msg:
-  # parallel: true
+  parallel: true
   scripts:
     "template_checker.js":
       runner: node
