@@ -11,8 +11,8 @@
         "comma-spacing": "warn",
         "indent": "warn",
         "object-property-newline": "warn",
-        "keyword-spacing": "warn",
-        "object-property-new": ["warn"]
+        "keyword-spacing": "warn"
+
         // Добавьте другие общие правила здесь, которые должны применяться как для JavaScript, так и для TypeScript файлов
       }
     }
@@ -73,7 +73,6 @@
     "comma-spacing": "warn",
     "indent": "warn",
     "object-property-newline": "warn",
-    "keyword-spacing": "warn",
-    "object-property-new": ["off"] // Добавьте правило 'object-property-new' с уровнем ошибки
+    "keyword-spacing": "warn"
   }
 }
