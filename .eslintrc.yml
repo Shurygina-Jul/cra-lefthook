@@ -19,7 +19,7 @@ overrides:
 
 rules:
   #  Примеры кастомных правил
-  quotes: ["warn"] # Использовать двойные кавычки
+  quotes: ["warn", "double"] # Использовать двойные кавычки
   react/react-in-jsx-scope: ["off"] # Отключить правило react/react-in-jsx-scope React 17+ неактуально
 
   #  Переопределение правил Airbnb на "warn" или "off"
