@@ -1,0 +1,15 @@
+extends:
+  - "@commitlint/config-conventional"
+rules:
+  type-case:
+    - 2
+    - "always"
+    - "lower-case" # Тип коммита должен быть в нижнем регистре
+  type-enum:
+    - 2
+    - "always"
+    - ["feat", "fix", "docs", "style", "refactor", "test", "chore"] # Разрешённые типы коммитов
+  subject-max-length:
+    - 2
+    - "always"
+    - 100 # Максимальная длина заголовка коммита
