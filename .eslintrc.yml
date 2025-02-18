@@ -1,0 +1,74 @@
+extends:
+  - react-app
+  - react-app/jest
+  - airbnb
+
+overrides:
+  - files:
+      - "*.ts"
+      - "*.tsx"
+    rules:
+      semi: ["warn"] # Предупреждение для отсутствия точек с запятой
+      block-spacing: ["warn"] # Предупреждение для отступов в блоках
+      brace-style: ["warn"] # Предупреждение для стиля фигурных скобок
+      key-spacing: ["warn"] # Предупреждение для пробелов в ключах объектов
+      comma-spacing: ["warn"] # Предупреждение для пробелов перед запятыми
+      indent: ["warn"] # Предупреждение для отступов
+      object-property-newline: ["warn"] # Предупреждение для новой строки после свойства объекта
+      keyword-spacing: ["warn"] # Предупреждение для пробелов в ключевых словах
+
+rules:
+  #  Примеры кастомных правил
+  quotes: ["warn"] # Использовать двойные кавычки
+  react/react-in-jsx-scope: ["off"] # Отключить правило react/react-in-jsx-scope React 17+ неактуально
+
+  #  Переопределение правил Airbnb на "warn" или "off"
+  import/no-unresolved: ["warn"] # Предупреждение для неразрешенных импортов
+  import/extensions: ["warn"] # Предупреждение для отсутствия расширений файлов при импорте
+  import/prefer-default-export: ["off"] # Отключение предпочтения default экспорта при импорте
+  react/jsx-filename-extension: # Разрешение JSX в файлах с расширениями .jsx и .tsx
+    - "warn"
+    - extensions:
+        - ".jsx"
+        - ".tsx"
+  react/jsx-props-no-spreading: ["warn"] # Предупреждение для распространения props
+  react/require-default-props: ["warn"] # Предупреждение для отсутствия defaultProps
+  react/forbid-prop-types: ["off"] # Предупреждение для использования propTypes
+  react/no-array-index-key: ["warn"] # Предупреждение для использования индексов массива в ключах
+  react/button-has-type: ["warn"] # Предупреждение для отсутствия типа у кнопок
+  jsx-a11y/click-events-have-key-events: ["warn"] # Предупреждение для отсутствия key events у кликабельных элементов
+  jsx-a11y/no-static-element-interactions: ["warn"] # Предупреждение для интерактивных элементов без ролей
+  jsx-a11y/anchor-is-valid: ["warn"] # Предупреждение для невалидных элементов anchor
+  no-unused-vars: ["warn"] # Предупреждение для неиспользуемых переменных
+  no-console: ["off"] # Отключение предупреждения для использования console
+  no-param-reassign: ["warn"] # Предупреждение для изменения параметров функции
+  no-shadow: ["warn"] # Предупреждение для затенения переменных
+  no-underscore-dangle: ["warn"] # Предупреждение для использования нижних подчеркиваний
+  no-nested-ternary: ["warn"] # Предупреждение для вложенных тернарных операторов
+  no-restricted-syntax: ["warn"] # Предупреждение для использования запрещенных синтаксических конструкций
+  no-plusplus: ["warn"] # Предупреждение для использования ++ и --
+  no-use-before-define: ["warn"] # Предупреждение для использования переменных до их объявления
+  no-unused-expressions: ["warn"] # Предупреждение для неиспользуемых выражений
+  no-multi-spaces: ["warn"] # Предупреждение для множественных пробелов
+  no-trailing-spaces: ["warn"] # Предупреждение для trailing пробелов
+  no-multiple-empty-lines: ["warn"] # Предупреждение для множественных пустых строк
+  object-curly-newline: ["warn"] # Предупреждение для новых строк в объектах
+  object-curly-spacing: # Предупреждение для пробелов внутри фигурных скобок объектов
+    - "warn"
+    - always
+  array-bracket-spacing: # Предупреждение для пробелов внутри квадратных скобок массивов
+    - "warn"
+    - always
+  comma-dangle: # Предупреждение для trailing запятых
+    - "warn"
+    - always-multiline
+  arrow-parens: # Предупреждение для скобок вокруг параметров стрелочных функций
+    - "warn"
+    - always
+  arrow-body-style: # Предупреждение для стиля тела стрелочных функций
+    - "warn"
+    - as-needed
+  prefer-const: ["warn"] # Предупреждение для использования const вместо let
+  prefer-template: ["warn"] # Предупреждение для использования шаблонных строк
+  prefer-arrow-callback: ["warn"] # Предупреждение для использования стрелочных функций в колбэках
+  prefer-destructuring: ["warn"] # Предупреждение для деструктуризации

@@ -10,7 +10,8 @@ pre-commit:
   commands:
     eslint:
       glob: "*.{js,ts,jsx,tsx}"
-      run: yarn eslint {staged_files} --fix
+      # run: yarn eslint {staged_files} --fix
+      run: yarn eslint ./src --fix
 
 commit-msg:
   parallel: true
